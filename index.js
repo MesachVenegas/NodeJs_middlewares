@@ -3,11 +3,20 @@ const express = require('express')
 const app = express();
 
 
-// app.use()
+app.use(express.json());
 
-app.get('/', (req, res) =>{
-    res.send('Bienvenido a NodeJs')
-})
+// solo se puede tener una respuesta por middleware.
+app.get('/',
+    (req, res, next) =>{
+        // res.send('Bienvenido a NodeJs')
+        console.log('Me ejecuto primero');
+        next();
+    },
+    (req, res) => {
+        res.send('Soy la segunda ejecución')
+        console.log('Me ejecuto segundo');
+    }
+);
 
 // activa el servidor en modo escucha para captar todo lo que sucede en el servidor.
 app.listen(8000, () =>{
