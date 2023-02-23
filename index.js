@@ -6,7 +6,7 @@ const app = express();
 // app.use()
 
 app.get('/', (req, res) =>{
-    res.send('Welcome NodeJs')
+    res.send('Bienvenido a NodeJs')
 })
 
 // activa el servidor en modo escucha para captar todo lo que sucede en el servidor.
